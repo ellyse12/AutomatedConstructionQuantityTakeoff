@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.constructiontakeoff.controller.HomeController"
+            stylesheets="@/styles/home.css"
+            fx:id="rootPane">
+    
+    <top>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            
+            <MenuBar>
+                <Menu text="File">
+                    <MenuItem text="Open DWG" onAction="#handleOpenDwg" accelerator="Ctrl+O"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Export to Excel" onAction="#handleExportToExcel" accelerator="Ctrl+E"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Logout" onAction="#handleLogout"/>
+                </Menu>
+                <Menu text="View">
+                    <MenuItem text="History" onAction="#handleViewReports"/>
+                </Menu>
+            </MenuBar>
+            
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Current File:"/>
+                <Label fx:id="currentFileLabel" text="No file selected"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Start Takeoff" onAction="#handleStartTakeoff" disable="true" fx:id="takeoffButton"/>
+            </HBox>
+        </VBox>
+    </top>
+    
+    <center>
+        <TabPane fx:id="mainTabPane" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Takeoff">
+                    <content>
+                        <SplitPane dividerPositions="0.75" styleClass="main-split-pane">
+                            <VBox>
+                                <HBox spacing="10" alignment="CENTER_LEFT" styleClass="toolbar">
+                                    <Button text="Zoom In" onAction="#handleZoomIn" styleClass="zoom-button" mnemonicParsing="false"/>
+                                    <Button text="Zoom Out" onAction="#handleZoomOut" styleClass="zoom-button" mnemonicParsing="false"/>
+                                    <Button text="Fit to Width" onAction="#handleFitToWidth" styleClass="zoom-button"/>
+                                    <Label text="Zoom:" styleClass="zoom-label"/>
+                                    <Label fx:id="zoomLabel" text="100%" styleClass="zoom-value"/>
+                                </HBox>
+                                <ScrollPane VBox.vgrow="ALWAYS" fitToWidth="true" styleClass="pdf-scroll-pane">
+                                    <VBox fx:id="pdfViewer" spacing="10" styleClass="pdf-viewer">
+                                        <padding>
+                                            <Insets top="10" right="10" bottom="10" left="10"/>
+                                        </padding>
+                                    </VBox>
+                                </ScrollPane>
+                            </VBox>
+                            <TableView fx:id="resultsTable" styleClass="results-table">
+                                <columns>
+                                    <TableColumn text="Material" fx:id="materialColumn" prefWidth="150"/>
+                                    <TableColumn text="Quantity" fx:id="quantityColumn" prefWidth="100"/>
+                                    <TableColumn text="Unit" fx:id="unitColumn" prefWidth="80"/>
+                                </columns>
+                                <placeholder>
+                                    <Text text="No takeoff results yet" styleClass="table-placeholder"/>
+                                </placeholder>
+                            </TableView>
+                        </SplitPane>
+                    </content>
+                </Tab>
+                <Tab text="History">
+                    <content>
+                        <fx:include source="/com/constructiontakeoff/HistoryView.fxml"/>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </center>
+    
+    <bottom>
+        <HBox alignment="CENTER_LEFT" spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <Label fx:id="statusLabel"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <ProgressBar fx:id="progressBar" progress="0.0" visible="false" prefWidth="200"/>
+        </HBox>
+    </bottom>
+    
+</BorderPane>

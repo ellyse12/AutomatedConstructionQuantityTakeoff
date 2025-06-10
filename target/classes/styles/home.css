@@ -1,0 +1,112 @@
+.root {
+    -fx-font-family: system;
+    -fx-font-size: 14px;
+    -fx-background: white;
+    background: white;
+}
+
+.menu-bar {
+    -fx-background-color: #f8f9fa;
+    background-color: #f8f9fa;
+}
+
+.menu-item {
+    -fx-background-color: white;
+    background-color: white;
+    -fx-padding: 5px 10px;
+    padding: 5px 10px;
+}
+
+.menu-item:hover {
+    -fx-padding: 5px 10px;
+    padding: 5px 10px;
+    -fx-background-color: #e9ecef;
+    background-color: #e9ecef;
+}
+
+.button {
+    -fx-background-color: #007bff;
+    background-color: #007bff;
+    -fx-text-fill: white;
+    -fx-border-color: #0056b3;
+    border-color: #0056b3;
+    -fx-border-radius: 3px;
+    border-radius: 3px;
+    -fx-padding: 5px 10px;
+    padding: 5px 10px;
+}
+
+.button:hover {
+    -fx-background-color: #0056b3;
+    background-color: #0056b3;
+}
+
+.label {
+    -fx-font-size: 14px;
+    font-size: 14px;
+}
+
+.header-label {
+    -fx-font-weight: bold;
+    font-weight: bold;
+}
+
+.table-view {
+    -fx-background: white;
+    background: white;
+    -fx-border-color: #dee2e6;
+    border-color: #dee2e6;
+    -fx-border-width: 1px;
+    border-width: 1px;
+}
+
+.table-row-cell {
+    -fx-background-color: white;
+    background-color: white;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #f8f9fa;
+    background-color: #f8f9fa;
+    -fx-border-color: #dee2e6;
+    border-color: #dee2e6;
+    -fx-border-width: 1px;
+    border-width: 1px;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #007bff;
+    background-color: #007bff;
+    -fx-border-color: #0056b3;
+    border-color: #0056b3;
+    -fx-border-width: 1px;
+    border-width: 1px;
+    -fx-padding: 2px;
+    padding: 2px;
+}
+
+.scroll-pane {
+    -fx-background-color: white;
+    background-color: white;
+    -fx-border-color: #dee2e6;
+    border-color: #dee2e6;
+}
+
+.progress-bar {
+    -fx-accent: #007bff;
+    -fx-background-color: #e9ecef;
+    background-color: #e9ecef;
+}
+
+.pdf-viewer {
+    -fx-background-color: white;
+    background-color: white;
+    -fx-padding: 10px;
+    padding: 10px;
+}
+
+.status-label {
+    -fx-text-fill: #6c757d;
+    -fx-font-size: 12px;
+    font-size: 12px;
+}
