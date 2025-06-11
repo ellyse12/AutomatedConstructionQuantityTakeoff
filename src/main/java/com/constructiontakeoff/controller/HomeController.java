@@ -103,7 +103,6 @@ public class HomeController {
         ensureUserCreated();
 
         Platform.runLater(() -> {
-            setupKeyboardShortcuts();
             setupWindowHandlers();
             setupTabChangeListener();
         });
@@ -745,28 +744,5 @@ public class HomeController {
         alert.showAndWait();
     }
 
-    private void setupKeyboardShortcuts() {
-        Scene scene = rootPane.getScene();
-        scene.setOnKeyPressed(event -> {
-            if (event.isControlDown()) {
-                switch (event.getCode()) {
-                    case O:
-                        handleOpenDwg();
-                        break;
-                    case E:
-                        handleExportToExcel();
-                        break;
-                    case EQUALS:
-                        handleZoomIn();
-                        break;
-                    case MINUS:
-                        handleZoomOut();
-                        break;
-                    default:
-                        break;
-                }
-            }
-        });
-    }
 
 }
