@@ -100,27 +100,10 @@ public class HomeController {
     public void initialize() {
         takeoffEngine = TakeoffEngineRefactored.createDefault();
 
-        ensureUserCreated();
-
         Platform.runLater(() -> {
             setupWindowHandlers();
             setupTabChangeListener();
         });
-    }
-
-    private void ensureUserCreated() {
-        try {
-            String systemUsername = System.getProperty("user.name");
-            DatabaseService databaseService = DatabaseService.getInstance();
-
-            if (!databaseService.isUsernameTaken(systemUsername)) {
-
-                databaseService.registerUser(systemUsername, systemUsername + "@example.com", "password");
-                logger.info("Sistem kullanıcısı oluşturuldu: " + systemUsername);
-            }
-        } catch (Exception e) {
-            logger.log(Level.SEVERE, "Kullanıcı oluşturma sırasında hata", e);
-        }
     }
 
     private void setupWindowHandlers() {
