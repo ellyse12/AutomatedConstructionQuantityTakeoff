@@ -9,7 +9,7 @@ This project is a JavaFX desktop application for generating quantity takeoffs fr
 - Automated takeoff engine that parses lines, polylines and other entities
 - Export takeoff results to Excel
 - History view with PDF preview and Excel download
-- Data stored locally using H2/SQLite
+- Data stored locally using H2
 
 ## Building
 Prerequisites:
